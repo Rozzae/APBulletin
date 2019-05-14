@@ -29,7 +29,7 @@
 
             function get_ad($public = true){
               global $connection;
-              $sql = "SELECT * FROM adverts WHERE page = {$_GET['page']}";
+              $sql = "SELECT * FROM adverts";
               $result = mysql_query($sql);
               confirm_query($result);
               return($result);
@@ -124,6 +124,27 @@
 
     <!-- <h2> Welcome to A. A. Mortins</h2> -->
        <?php }?>
+       <table style="margin:5px; text-align:center; cellpadding:10px;">
+         <tr>
+         <?php
+            if(!isset($_GET['page'])){
+              $sql = "SELECT * FROM adverts";
+              $result = mysql_query($sql);
+              confirm_query($result);
+              $result_ad = $result;
+              if($result_ad){
+                while ($row = mysql_fetch_array($result_ad)){
+                  echo'
+                  <td>
+                    <img alt="ads" src="'.$row['4'].'" style="width:95%; height:150px;">
+                  </td>
+                  ';
+                }
+              }
+            }
+          ?>
+         </tr>
+       </table>
       </td>
       <td id="navigation">
         <?php
