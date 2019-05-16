@@ -8,11 +8,12 @@
       <td id="navigation">
         &nbsp;
       </td>
-      <td id="page">
+      <td id="page" style="border:2px solid black;" >
         <h2>Staff Menu</h2>
-        <p>Welcome to the Admin area, <?php echo "<b>" . $_SESSION['username'] . "</b>" ; ?></p>
-        <ul>
+        <p >Welcome to the Admin area, <?php echo "<b>" . $_SESSION['username'] . "</b>" ; ?></p>
+        <ul style="padding:20px;">
           <li><a href="content.php">Manage Website Content</a></li>
+          <li><a href="edit_ad.php?page=1">Manage Adverts</a></li>
           <?php 
             if($_SESSION['role_id'] == EDITOR){
               echo '<li style="display:none;"><a href="new_user.php">Add Admin User</a></li>';
